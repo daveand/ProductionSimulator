@@ -1,0 +1,199 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div class="row">
+        <div class="col col-12 col-lg-3">
+            Input Values
+            <h6>Production Planning</h6>
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Shift length</span>
+                </div>
+                <input id="shiftLength" type="number" class="form-control" placeholder="480" value="480" aria-label="Username" aria-describedby="basic-addon1">
+                <div class="input-group-append">
+                    <span class="input-group-text narrow">min</span>
+                </div>
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Total break time</span>
+                </div>
+                <input id="totalBreakTime" type="number" class="form-control" placeholder="60" value="60" aria-label="Username" aria-describedby="basic-addon1">
+                <div class="input-group-append">
+                    <span class="input-group-text narrow">min</span>
+                </div>
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Downtime</span>
+                </div>
+                <input id="downtime" type="number" class="form-control" placeholder="32" value="32" aria-label="Username" aria-describedby="basic-addon1">
+                <div class="input-group-append">
+                    <span class="input-group-text narrow">min</span>
+                </div>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radioCycleTime" value="radioCycleTime" checked>
+                <label class="form-check-label" for="inlineRadio1">Cycle Time</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radioRunRate" value="radioCycleTime">
+                <label class="form-check-label" for="inlineRadio2">Run Rate</label>
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Ideal Cycle Time</span>
+                </div>
+                <input id="idealCycleTime" type="number" class="form-control" placeholder="1.5" value="1.5" aria-label="Username" aria-describedby="basic-addon1">
+                <div class="input-group-append">
+                    <span class="input-group-text narrow">sec</span>
+                </div>
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Ideal Run Rate</span>
+                </div>
+                <input id="idealRunRate" type="number" class="form-control" placeholder="60" value="60" aria-label="Username" aria-describedby="basic-addon1">
+                <div class="input-group-append">
+                    <span class="input-group-text narrow">/min</span>
+                </div>
+            </div>
+            <h6>Production Parameters</h6>
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Actual Cycle Time</span>
+                </div>
+                <input id="actualCycleTimeMin" type="number" class="form-control" placeholder="1.5" value="1.5" aria-label="Username" aria-describedby="basic-addon1">
+                <input id="actualCycleTimeMax" type="number" class="form-control" placeholder="1.6" value="1.6" aria-label="Username" aria-describedby="basic-addon1">
+                <div class="input-group-append">
+                    <span class="input-group-text narrow">-/+ s</span>
+                </div>
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Actual Run Rate</span>
+                </div>
+                <input id="actualRunRateMin" type="number" class="form-control" placeholder="50" value="50" aria-label="Username" aria-describedby="basic-addon1">
+                <input id="actualRunRateMax" type="number" class="form-control" placeholder="60" value="60" aria-label="Username" aria-describedby="basic-addon1">
+                <div class="input-group-append">
+                    <span class="input-group-text narrow">-/+ m</span>
+                </div>
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Reject Count</span>
+                </div>
+                <input id="rejectCountMin" type="number" class="form-control" placeholder="5" value="5" aria-label="Username" aria-describedby="basic-addon1">
+                <input id="rejectCountMax" type="number" class="form-control" placeholder="15" value="15" aria-label="Username" aria-describedby="basic-addon1">
+                <div class="input-group-append">
+                    <span class="input-group-text narrow">-/+ %</span>
+                </div>
+            </div>
+            <h6>Simulation</h6>
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Data Interval</span>
+                </div>
+                <input id="simInterval" type="number" class="form-control" placeholder="1000" value="1000" aria-label="Username" aria-describedby="basic-addon1">
+                <div class="input-group-append">
+                    <span class="input-group-text narrow">ms</span>
+                </div>
+            </div>
+            <hr />
+            <input class="btn btn-info" type="button" id="startSimulation" value="Start Simulation" />
+            <input class="btn btn-danger" type="button" id="stopSimulation" value="Stop Simulation" />
+
+
+
+        </div>
+        <div class="col col-12 col-lg-7">
+            <canvas id="LineChart"></canvas>
+        </div>
+        <div class="col col-12 col-lg-2">
+            OEE Values
+            <br /><br />
+            <div style="height: 400px;">
+                <canvas id="OEEChart"></canvas>
+
+            </div>
+            <table class="table table-borderless table-sm">
+                <tr>
+                    <td>Availability:</td>
+                    <td><span id="availability"></span></td>
+                </tr>
+                <tr>
+                    <td>Performance:</td>
+                    <td><span id="performance"></span></td>
+                </tr>
+                <tr>
+                    <td>Quality:</td>
+                    <td><span id="quality"></span></td>
+                </tr>
+                <tr style="font-weight: bold;">
+                    <td>OEE:</td>
+                    <td><span id="oee"></span></td>
+                </tr>
+
+            </table>
+            <hr />
+            <table class="table table-borderless table-sm">
+                <tr>
+                    <td>Production Minute:</td>
+                    <td><span id="productionMinute"></span></td>
+                </tr>
+                <tr>
+                    <td>Timestamp:</td>
+                    <td><span id="timeStamp"></span></td>
+                </tr>
+                <tr>
+                    <td>Ack. Total Count:</td>
+                    <td><span id="ackTotalCount"></span></td>
+                </tr>
+                <tr>
+                    <td>Ack. Total Rejected:</td>
+                    <td><span id="ackTotalReject"></span></td>
+                </tr>
+
+            </table>
+        </div>
+
+    </div>
+
+
+    @*<div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-2">User</div>
+        <div class="col-4"><input type="text" id="userInput" /></div>
+    </div>
+    <div class="row">
+        <div class="col-2">Message</div>
+        <div class="col-4"><input type="text" id="messageInput" /></div>
+    </div>
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-6">
+            <input type="button" id="sendButton" value="Send Message" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <input type="button" id="startCounter" value="Start Counter" />
+        </div>
+    </div>*@
+
+
+@*<div class="row">
+    <div class="col-12">
+        <hr />
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <ul id="messagesList"></ul>
+    </div>
+</div>*@
+
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/data.js"></script>
+<script src="~/js/simulationchart.js"></script>
